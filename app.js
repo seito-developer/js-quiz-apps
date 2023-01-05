@@ -18,13 +18,19 @@ const $window = window;
 const $doc = document;
 const $question = $doc.getElementById('js-question');
 const $buttons = $doc.querySelectorAll('.btn');
+const $status = $doc.getElementById('js-status');
 
 const quizLen = quiz.length;
 let quizCount = 0;
 let score = 0;
 
+const countQuestions = (count) => {
+  $status.innerHTML = `${count}/${quizLen}`;
+};
+
 const init = () => {
   $question.textContent = quiz[quizCount].question;
+  countQuestions(quizCount+1);
   
   const buttonLen = $buttons.length;
   let btnIndex = 0;
